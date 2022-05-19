@@ -1,0 +1,113 @@
+#问题3-1  浮点值，整数，复数
+#问题3-2  levels()
+#3-3  利用特定的as*函数as.numeric
+#3-4  view(),attributes(),sample()...
+#3-5  使用rm()删除变量
+
+#练习3-1
+class(Inf)
+class(NA)
+class(NaN)
+class("")#以上为查找类
+typeof(Inf)
+typeof(NA)
+typeof(NaN)
+typeof("")#以上为查找类型
+mode(Inf)
+mode(NA)
+mode(NaN)
+mode("")#以上为查找模式
+storage.mode(Inf)
+storage.mode(NA)
+storage.mode(NaN)
+storage.mode("")#以上为查找存储模式
+
+#练习3-2
+name_char<-sample(c("dog","cat","dolphin","hamster","goldfish"),100,replace = TRUE)
+#随机从“dog”、“cat”、“dolphin”、“hamster”和“goldfish”中以相等的概率生成100个宠物名
+name_fac<-as.factor(name_char)
+print(name_char)              
+print(name_fac[1:5])#输出前五个的名称
+summary(name_fac)#计算每种宠物的数量
+
+#练习3-3
+apple<-1
+banana<-2
+blueberry<-3
+bear<-4
+grape<-5#分别命名水果名称
+ls(pat="a")#列出所有包含字母a的变量
+
+#问题4-1  利用seq.int()创建
+x<-seq(0,by=0.25,length.out = 6)
+print(x)
+#4-2  (1).name=value  (2).创建向量后再创建name函数
+#4-3  (1).给向量传入正数，会返回此位置上的向量元素 (2)给向量传入负数，会返回一个向量 (3)给向量传入一个逻辑向量，会返回一个向量，且只包含索引为TRUE的元素 (4)对已命名的向量，传入命名的字符向量，会返回包含这些名字的向量元素
+#4-4  72
+#4-5  利用特殊运算符%*%进行内乘(及内积的计算)
+
+#(1)
+a<-seq.int(11,50,3)#令11到50，步长为三的向量命名为a
+c<-seq.int(2,3)#将向量（2，3）命名为c
+a-c#向量计算
+#(2)
+a<-seq(1.1,4,20)#将1.1到4，步长为20的向量命名为a
+c(4,5,8,9)
+a*c#向量计算
+
+
+#练习4-1(我不会)
+n<-c(1:50)#n为从1到50的正整数
+list[n]<-n*(n+1)/2#令list为n的函数
+letters[n]=list[n]
+print(letters[1])
+print(letters[5])
+print(letters[9])
+print(letters[15])
+
+#练习4-2
+diag_a<-(c(11:1,0,1:11))#创建该矩阵的对角线向量
+diag(diag_a)#将上述向量作为对角线创建矩阵
+
+#5-1
+长度
+#5-2
+formals()#formals（）函数，可以返回一个函数参数的成对列表
+#5-3
+a_data_frame()#创建数据框
+subset()#创建子集的方法
+#5-4
+#通过给data.frame传入check.names=FALSE关闭列表的要点（列表必须是唯一且有效的变量名称）设定
+#5-5
+#
+
+
+#练习5-1
+a_list<-list(c(1:9))#在a_list中存入1到9
+a1_list<-sqrt(c(1:9))#a1_list中为上述的平方数
+b_list<-list(c(10:19))#在b_list中存入10到19
+b1_list<-sqrt(c(10:19))#b1_list中为上述的平方数
+
+
+#5-2
+iris
+iris[1:150,-5]#选取该数据集的部分数据
+frame_iris<-data.frame(a=iris[1:150,1],b=iris[1:150,2],c=iris[1:150,3],d=iris[1:150,4])
+#创建新的数据框，由取定的数值组成
+frame_iris
+colMeans(frame_iris[1:150,])
+ave1<-mean(iris[1:150,1])
+ave2<-mean(iris[1:150,2])
+ave3<-mean(iris[1:150,3])
+ave4<-mean(iris[1:150,4])
+#分别计算各列的平均值
+
+#5-3
+beaver1$id<-1#为beaver1数据集添加一列名为id的列，其值全部为1
+beaver2$id<-2#为beaver2数据集添加一列名为id的列，其值全部为2
+beaver1
+beaver2
+beaver3<-rbind(beaver1,beaver2)#垂直拼接两个数据集，并命名为beaver3
+subset(beaver3,activ==1)#找到所有的活跃海狸的子集
+
+
